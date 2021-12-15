@@ -1,3 +1,5 @@
+import sys
+
 import tensorflow.keras as keras
 import numpy as np
 from PIL import Image
@@ -57,10 +59,14 @@ class Eval:
         print('Attack Success Rate:', asr)
 
 if __name__ == '__main__':
-    path_bd = 'E:\pycharmProjects\CSAW-HackML-2020\lab3\models\\bd_net.h5'
-    path_pruned = 'E:\pycharmProjects\MachineLearningSecurity2021Lab3\models\pruned_bd_net_by_10_acc=84.43751623798389_asr=77.015675067117.h5'
-    path_valid_x_bd = 'E:\pycharmProjects\CSAW-HackML-2020\lab3\data\\bd\\bd_valid.h5'
-    path_clean_x = 'E:\pycharmProjects\CSAW-HackML-2020\lab3\data\cl\\valid.h5'
+    path_bd = 'models/bd_net.h5'
+    # path_pruned = 'E:\pycharmProjects\MachineLearningSecurity2021Lab3\models\pruned_bd_net_by_10_acc=84.43751623798389_asr=77.015675067117.h5'
+    path_pruned = 'models/pruned_bd_net_by_10_acc=84.43751623798389_asr=77.015675067117.h5'
+    # path_valid_x_bd = 'E:\pycharmProjects\CSAW-HackML-2020\lab3\data\\bd\\bd_valid.h5'
+    # path_clean_x = 'E:\pycharmProjects\CSAW-HackML-2020\lab3\data\cl\\valid.h5'
+    test_img_path = 'data/test_img/bd_0.jpeg'
+    if sys.argv:
+        test_img_path = str(sys.argv[1])
     eval = Eval( path_bd, path_pruned)
-    label = eval.is_img_backdoored('E:\pycharmProjects\CSAW-HackML-2020\lab3\data\\test_img\\bd_0.jpeg')
-    print(label)
+    label = eval.is_img_backdoored(test_img_path)
+    print(f'the predicted label of this image is {label}')
