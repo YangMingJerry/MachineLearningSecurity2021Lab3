@@ -3,7 +3,12 @@ This is code for lab3
 
 Ming Yang
 my2153
-
+## 0. Preparation
+1. python version should be at least python 3.0
+2. run this to install all dependencies
+```shell
+pip install -r requirements.txt
+```
 ## 1. How to get repaired models?
 1. check the models saved at /models
 2. Or you can also Run the pruning.py script to get the 2,4,10 acc dropping models.
