@@ -24,3 +24,5 @@ python goodnet.py data/test_img/bd_0.jpeg
 The output would be like:
 
 the predicted label of this image is [1283]
+
+There are also several other image saved for testing in the /data/test_img dir of this repository, please check it if you like to see some more test cases.
