@@ -9,7 +9,7 @@ class GoodNet:
     def __init__(self, path_bd, path_pruned):
         self.model_b = keras.models.load_model(path_bd)
         self.model_p = keras.models.load_model(path_pruned)
-        self.num_class = self.model_p.output.shape[1]
+        self.num_class = self.model_p.output.shape[1] - 1
 
     def predict(self, x):
         y_b = np.argmax(self.model_b.predict(x), axis=1)
